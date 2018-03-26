@@ -1,0 +1,37 @@
+workers: 16
+pixel_mean: [0.485, 0.456, 0.406]
+pixel_std: [0.229, 0.224, 0.225]
+gpu_ids: '0,1'
+
+CLS:
+  arch: 'resnet18_1x64d'
+  data_root: '/home/priv-lab1/Database/vehicleid/'
+  #have_data_list: True
+  train_root: '/home/priv-lab1/Database/vehicleid/wzh_list_2/train_13164.txt'
+  val_root: '/home/priv-lab1/Database/vehicleid/wzh_list_2/val_13164.txt'
+  train_crop_type: center
+  epochs: 150
+  train_batch: 128
+  test_batch: 200
+  base_lr: 0.05
+  lr_schedule: [30, 60]
+  gamma: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  fix_bn: False
+  num_classes: 13165
+  base_size: 256
+  crop_size: 224
+  rotation: [-10,10]
+  pixel_jitter: []
+  grayscale: 0
+  disp_iter: 20
+  ckpt: 'ckpts/vehicle/resnet18_reid_mul'
+  resume: ''
+  start_epoch: 0
+  cosine_lr: True
+  validate: False
+  evaluate: False
+
+
+
